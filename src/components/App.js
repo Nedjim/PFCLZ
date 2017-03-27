@@ -1,7 +1,7 @@
 import '../assets/stylesheets/index.scss';
 import React, { Component }         from 'react';
 import Content                      from './content/Content';
-import Notice                       from './notice/Notice';
+//import Notice                       from './notice/Notice';
 
 export default class App extends Component {
 
@@ -27,7 +27,7 @@ export default class App extends Component {
           <div id='notice'>
               <p> Un trou de mémoire?</p>
               <button onClick={this.showNotice.bind(this)}>{this.state.buttonValue}</button>
-              <Notice status={this.state.notice}/>
+              
           </div>
       </div>
     )
