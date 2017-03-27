@@ -27,7 +27,7 @@ export default class App extends Component {
           <div id='notice'>
               <p> Un trou de mémoire?</p>
               <button onClick={this.showNotice.bind(this)}>{this.state.buttonValue}</button>
-              
+              <Notice status={this.state.notice}/>
           </div>
       </div>
     )
