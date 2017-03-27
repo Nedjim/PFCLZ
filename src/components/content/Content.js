@@ -7,23 +7,24 @@ export default class Content extends Component {
     constructor(){
         super();
         this.state = {
-            players : [
-                {name : 'Zauguidou', score: 0, choix: null}, 
-                {name : 'Nedjim', score: 0, choix: null}
-            ]
+            players : {
+                'Gaby' : {name: 'Gaby', score : 0, choise: null},
+                'Jayden': {name:'Jayden', score : 0, choise: null}
+            }
         }
     }
 
+    getChoise(value, name){
+        console.log('Joueur: ' + name + ' Choix: '+ value);
+        
+        console.log(this.state.players['Gaby'])
+    }
+    
     render(){
         return (
             <div>
-                {
-                    this.state.players.map((player, index) => {
-                        return(
-                            <Player key={index} player={player} />
-                        )
-                    })
-                }
+                 <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)}/>
+                 <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)}/>
             </div>
         )
     }
