@@ -1,7 +1,7 @@
 import '../assets/stylesheets/index.scss';
 import React, { Component }         from 'react';
 import Content                      from './content/Content';
-//import Notice                       from './notice/Notice';
+import Notice                       from './notice/Notice';
 
 export default class App extends Component {
 
