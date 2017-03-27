@@ -70,24 +70,23 @@ export default class Content extends Component {
     }
 
     end(){
-        console.log('ok')
         if(this.state.players['Gaby'].score > this.state.players['Jayden'].score){
             return (
-                <div>
+                <div  className='winner'>
                     Gaby gagne la partie
                 </div>
             )
         }
         else if(this.state.players['Gaby'].score == this.state.players['Jayden'].score){
             return (
-                <div>
+                <div  className='winner'>
                     Egalité
                 </div>
             )
         }
         else {
             return (
-                <div>
+                <div className='winner'>
                     Jayden gagne la partie
                 </div>
             )
@@ -98,10 +97,9 @@ export default class Content extends Component {
     render(){
          if(this.state.tours == this.state.totalTours){
             return (
-                <div>
-                    <h1>FIN du jeu</h1>
-                    <div>
-                        <h2>Score Final</h2>
+                <div id="end">
+                    <h1>FIN DU JEU</h1>
+                    <div className='score'>
                         {this.end()}
                         <p>Gaby : {this.state.players['Gaby'].score}</p>
                         <p>Jayden : {this.state.players['Jayden'].score}</p>

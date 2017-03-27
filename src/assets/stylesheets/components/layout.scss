@@ -10,7 +10,7 @@ header {
     }
 }
 
-#content {
+#content{
     text-align: center;
     .message {
         margin: 1rem;
@@ -23,7 +23,7 @@ header {
     .players{
         display: inline-block;
         @extend .padding;
-        width: 48%;
+        width: 50%;
         &:first-child {
             margin-right: 1rem;
         }
@@ -43,6 +43,42 @@ header {
             button.last-child {
                 margin-right: 0;
             }
+        }
+    }
+}
+
+#end {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    @extend .padding;
+    h1 {
+        text-align: center;
+    }
+    .winner {
+        font-size: 1.4rem;
+        text-align: center;
+        @extend .padding;
+    }
+    .score{
+        text-align: center;
+    }
+}
+#notice{
+    @extend .padding;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    p {
+        @extend .padding;
+    }
+    .rules {
+        @extend .padding;
+        width: 50%;
+        margin: 0 auto;
+        text-align: left;
+        li {
+            margin-top: 0.8rem;
         }
     }
 }
