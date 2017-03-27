@@ -13,11 +13,10 @@ export default class App extends Component {
     }
   }
 
-  showNotice(){
+  /*showNotice(){
     this.setState({ notice: !this.state.notice});
   }
-
-
+*/
   render() {
     return(
       <div>
