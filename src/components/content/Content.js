@@ -7,6 +7,7 @@ export default class Content extends Component {
     constructor(){
         super();
         this.state = {
+           /* currentCount: 5,*/
             message: '',
             totalTours : 5,
             tours: 0,
@@ -16,10 +17,33 @@ export default class Content extends Component {
             }
         }
     }
+/*
+    componentDidMount() {
+        var intervalId = setInterval(this.timer.bind(this), 1000);
+        this.setState({intervalId: intervalId});
+    }
+
+    timer() {
+        this.setState({ currentCount: this.state.currentCount-1 });
+        if(this.state.currentCount == 0){
+            this.randomValue();
+        }
+    }
+
+    randomValue(name){
+        let values = ['pierre', 'feuille', 'ciseaux', 'lezard', 'spock'];
+        let max = 4;
+        let min = 0;
+        let random = Math.floor(Math.random() * (max - min)) + min;
+        console.log(name);
+        console.log(values[random]);
+        this.getChoise(values[random], name);
+
+    }*/
 
     changeDisplay(){
         let players = this.state.players;
-
+        this.setState({currentCount : 5});
         players['Gaby'].display = !players['Gaby'].display;
         players['Jayden'].display = !players['Jayden'].display;
     }
@@ -70,6 +94,7 @@ export default class Content extends Component {
     }
 
     end(){
+        clearInterval(this.state.intervalId);
         if(this.state.players['Gaby'].score > this.state.players['Jayden'].score){
             return (
                 <div  className='winner'>
@@ -116,8 +141,8 @@ export default class Content extends Component {
                     <div className='score'>
                         <p>Gaby: {this.state.players['Gaby'].score} - Jayden :  {this.state.players['Jayden'].score} </p>
                     </div>
-                    <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)}/>
-                    <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)}/>
+                    <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)} timer={this.state.currentCount} /*randomValue={this.randomValue}*//>
+                    <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)} timer={this.state.currentCount} /*randomValue={this.randomValue}*//>
                     <div className='message'>{this.state.message}</div>
                 </div>
             )

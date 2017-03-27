@@ -5,13 +5,17 @@ export default class Player extends Component {
     addChoise(e){
         this.props.getChoise(e.target.value, this.props.player.name);
     }
-
-
+/*
+    randomValues(){
+        this.props.randomValue(this.props.player.name);
+    }*/
 
     render() {
         if(this.props.player.display == true){
+            {/*this.randomValues()*/}
             return(
                 <div className='players'>
+                    <div>{/*this.props.timer*/}</div>
                     <h2>{this.props.player.name}</h2>
 
                     <p>Score: {this.props.player.score}</p>
