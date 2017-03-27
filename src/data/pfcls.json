@@ -1,0 +1,32 @@
+{
+    "pierre" : {
+        "feuille": 0,
+        "ciseaux": 1,
+        "lezard": 1,
+        "spock": 0
+    },
+    "feuille" : {
+        "pierre": 1,
+        "ciseaux": 0,
+        "lezard": 0,
+        "spock": 1
+    },
+    "ciseaux" : {
+        "pierre": 0,
+        "feuille": 1,
+        "lezard": 1,
+        "spock": 0
+    },
+    "lezard" : {
+        "pierre": 0,
+        "feuille": 1,
+        "ciseaux": 0,
+        "spock": 1
+    },
+    "spock" : {
+        "pierre": 1,
+        "feuille": 0,
+        "ciseaux": 1,
+        "lezard": 0
+    }
+}

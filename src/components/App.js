@@ -1,12 +1,16 @@
-import '../assets/stylesheets/base.scss';
-import React, { Component } from 'react';
+import '../assets/stylesheets/index.scss';
+import React, { Component }         from 'react';
+import Content                      from './content/Content'
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return(
-      <h1>Hello, {this.props.name}!</h1>
+      <div>
+          <h1>Pierre - Feuille - Ciseaux - Lézard - Spock</h1>
+          <Content />
+      </div>
     )
   }
 };
 
-export default App;
+

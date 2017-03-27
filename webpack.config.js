@@ -9,6 +9,7 @@ module.exports = {
     loaders: [
       { test: /\.js?$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.s?css$/, loader: 'style!css!sass' },
+      { test: /\.json$/, loader: 'json-loader'}
     ]
   },
   resolve: {
