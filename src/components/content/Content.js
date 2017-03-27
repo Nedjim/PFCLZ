@@ -68,13 +68,26 @@ export default class Content extends Component {
             return (
                 <div>
                     <h1>FIN du jeu</h1>
+
+                    <div>
+                        <h2>Score Final</h2>
+                        <div>{this.state.message}</div>
+                        {
+                            this.setState({
+                                message: this.state.players['Gaby'].score > this.state.players['Jayden'].score ? 'Gaby a gagne' : 'Jayden gagne'
+                            })
+                        }
+                   
+                        <p>Gaby : {this.state.players['Gaby'].score}</p>
+                        <p>Jayden : {this.state.players['Jayden'].score}</p>
+                    </div>
                 </div>
             )
         }
         else {
             return (
-                <div>
-                    <div>{this.state.message}</div>
+                <div id='content'>
+                    <div className='message'>{this.state.message}</div>
                     <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)}/>
                     <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)}/>
                 </div>

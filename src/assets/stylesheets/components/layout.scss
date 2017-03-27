@@ -1,0 +1,44 @@
+.padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+header {
+    margin-bottom: 1rem;
+    h1 {
+        text-align: center;
+        @extend .padding;
+    }
+}
+
+#content {
+    text-align: center;
+    .message {
+        margin: 1rem;
+    }
+
+    .players{
+        display: inline-block;
+        @extend .padding;
+        width: 48%;
+        &:first-child {
+            margin-right: 1rem;
+        }
+        &:last-child {
+            margin-left: 1rem;
+        }
+        .buttons, p {
+            @extend .padding;
+        }
+        .buttons {
+            button {
+                width: 7rem;
+                height: 3rem;
+                margin-right: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            button.last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

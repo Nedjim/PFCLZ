@@ -1,0 +1,28 @@
+body {
+    background: $background;
+    font-family: $muli;
+}
+
+header {
+    h1 {
+        color: white;
+        background: #212121;
+    }
+}
+
+#content {
+    .players{
+       background: white;
+       .buttons {
+           button {
+               border: none;
+               background: #E65100;
+               font-size: 0.9rem;
+               &:hover {
+                   background: #8D6E63;
+                   color: white;
+               }
+           }
+       }
+    }
+}
