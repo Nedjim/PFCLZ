@@ -16,7 +16,7 @@ export default class App extends Component {
   showNotice(){
     this.setState({ notice: !this.state.notice});
   }
-
+  
   render() {
     return(
       <div>
