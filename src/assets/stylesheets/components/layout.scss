@@ -3,7 +3,7 @@
     padding-bottom: 1rem;
 }
 header {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     h1 {
         text-align: center;
         @extend .padding;
@@ -16,6 +16,10 @@ header {
         margin: 1rem;
     }
 
+    .score {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
     .players{
         display: inline-block;
         @extend .padding;

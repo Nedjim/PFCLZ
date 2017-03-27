@@ -11,10 +11,17 @@ export default class Content extends Component {
             totalTours : 5,
             tours: 0,
             players : {
-                'Gaby' : {name: 'Gaby', score : 0, choise: null, tours: 0},
-                'Jayden': {name:'Jayden', score : 0, choise: null, tours: 0}
+                'Gaby' : {name: 'Gaby', score : 0, choise: null, tours: 0, display: true},
+                'Jayden': {name:'Jayden', score : 0, choise: null, tours: 0, display: false}
             }
         }
+    }
+
+    changeDisplay(){
+        let players = this.state.players;
+
+        players['Gaby'].display = !players['Gaby'].display;
+        players['Jayden'].display = !players['Jayden'].display;
     }
 
     getChoise(value, name){
@@ -22,8 +29,9 @@ export default class Content extends Component {
 
         players[name].choise = value;
         players[name].tours += 1;
-
+        
         this.setState({players : players});
+        this.changeDisplay();
         this.stopTours();
     }
 
@@ -37,30 +45,54 @@ export default class Content extends Component {
             this.compareChoise();
         }
     }
-
+    
     compareChoise(){
         let players = this.state.players;
-
         let choise1 = players['Gaby'].choise;
         let choise2 = players['Jayden'].choise;
         let message;
 
         if(choise1 == choise2){
-            message = 'Vous avez fait le même choix, vous ne gagnez aucune points'
+            message = 'Vous avez fait le même choix, vous ne gagnez aucun points sur la dernière partie'
         }
         else if(data[choise1][choise2] == 1){
-            message = 'Gaby gagne';
+            message = 'Gaby gagne la dernière partie';
             players['Gaby'].score += 1;
         }
         else {
-            message = 'Jayden gagne';
+            message = 'Jayden gagne la dernière partie';
             players['Jayden'].score += 1;
         }
-
         this.setState({
             message : message,
             players : players
         });
+    }
+
+    end(){
+        console.log('ok')
+        if(this.state.players['Gaby'].score > this.state.players['Jayden'].score){
+            return (
+                <div>
+                    Gaby gagne la partie
+                </div>
+            )
+        }
+        else if(this.state.players['Gaby'].score == this.state.players['Jayden'].score){
+            return (
+                <div>
+                    Egalité
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    Jayden gagne la partie
+                </div>
+            )
+        }
+        
     }
 
     render(){
@@ -68,16 +100,9 @@ export default class Content extends Component {
             return (
                 <div>
                     <h1>FIN du jeu</h1>
-
                     <div>
                         <h2>Score Final</h2>
-                        <div>{this.state.message}</div>
-                        {
-                            this.setState({
-                                message: this.state.players['Gaby'].score > this.state.players['Jayden'].score ? 'Gaby a gagne' : 'Jayden gagne'
-                            })
-                        }
-                   
+                        {this.end()}
                         <p>Gaby : {this.state.players['Gaby'].score}</p>
                         <p>Jayden : {this.state.players['Jayden'].score}</p>
                     </div>
@@ -87,9 +112,15 @@ export default class Content extends Component {
         else {
             return (
                 <div id='content'>
-                    <div className='message'>{this.state.message}</div>
+                    <div>
+                        Tours: {this.state.tours} / {this.state.totalTours} 
+                    </div>
+                    <div className='score'>
+                        <p>Gaby: {this.state.players['Gaby'].score} - Jayden :  {this.state.players['Jayden'].score} </p>
+                    </div>
                     <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)}/>
                     <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)}/>
+                    <div className='message'>{this.state.message}</div>
                 </div>
             )
         }
