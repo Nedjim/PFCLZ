@@ -48,7 +48,7 @@ export default class Content extends Component {
         if(choise1 == choise2){
             message = 'Vous avez fait le même choix, vous ne gagnez aucune points'
         }
-        if(data[choise1][choise2] == 1){
+        else if(data[choise1][choise2] == 1){
             message = 'Gaby gagne';
             players['Gaby'].score += 1;
         }
