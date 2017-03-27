@@ -15,9 +15,11 @@ export default class Content extends Component {
     }
 
     getChoise(value, name){
-        console.log('Joueur: ' + name + ' Choix: '+ value);
-        
-        console.log(this.state.players['Gaby'])
+        let players = this.state.players;
+
+        players[name].choise = value;
+        this.setState({players : players})
+        console.log(this.state.players)
     }
     
     render(){
