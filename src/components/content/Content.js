@@ -39,21 +39,28 @@ export default class Content extends Component {
     }
 
     compareChoise(){
-        let choise1 = this.state.players['Gaby'].choise;
-        let choise2 = this.state.players['Jayden'].choise;
+        let players = this.state.players;
+
+        let choise1 = players['Gaby'].choise;
+        let choise2 = players['Jayden'].choise;
         let message;
 
-        console.log("GABY : " + choise1 + " - VS - " + 'Jayden: ' +choise2)
         if(choise1 == choise2){
             message = 'Vous avez fait le même choix, vous ne gagnez aucune points'
         }
         if(data[choise1][choise2] == 1){
             message = 'Gaby gagne';
+            players['Gaby'].score += 1;
         }
         else {
             message = 'Jayden gagne';
+            players['Jayden'].score += 1;
         }
-        this.setState({message : message});
+
+        this.setState({
+            message : message,
+            players : players
+        });
     }
 
     render(){
