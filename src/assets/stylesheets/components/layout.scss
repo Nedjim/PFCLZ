@@ -23,7 +23,7 @@ header {
     .players{
         display: inline-block;
         @extend .padding;
-        width: 80%;
+        width: 60%;
         &:first-child {
             margin-right: 1rem;
         }
@@ -48,7 +48,7 @@ header {
 }
 
 #end {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     margin-bottom: 1rem;
     @extend .padding;
@@ -66,7 +66,7 @@ header {
 }
 #notice{
     @extend .padding;
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     text-align: center;
     p {
