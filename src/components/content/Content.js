@@ -39,6 +39,18 @@ export default class Content extends Component {
 
     }*/
 
+    repeat(){
+            this.setState({
+                message: '',
+                totalTours : 5,
+                tours: 0,
+                players : {
+                    'Gaby' : {name: 'Gaby', score : 0, choise: null, tours: 0, display: true},
+                    'Jayden': {name:'Jayden', score : 0, choise: null, tours: 0, display: false}
+                }
+            })
+    }
+
     changeDisplay(){
         let players = this.state.players;
         this.setState({currentCount : 5});
@@ -46,28 +58,7 @@ export default class Content extends Component {
         players['Jayden'].display = !players['Jayden'].display;
     }
 
-    getChoise(value, name){
-        let players = this.state.players;
-        players[name].choise = value;
-        players[name].tours += 1;
-        
-        this.setState({players : players});
-        this.changeDisplay();
-        this.stopTours();
-    }
-
-    stopTours(){
-        let players = this.state.players;
-        let tours1 = players['Gaby'].tours;
-        let tours2 = players['Jayden'].tours;
-
-        if(tours1 == tours2){
-            this.setState({tours: this.state.tours += 1});
-            this.compareChoise();
-        }
-    }
-    
-    compareChoise(){
+     compareChoise(){
         let players = this.state.players;
         let choise1 = players['Gaby'].choise;
         let choise2 = players['Jayden'].choise;
@@ -88,6 +79,27 @@ export default class Content extends Component {
             message : message,
             players : players
         });
+    }
+
+    stopTours(){
+        let players = this.state.players;
+        let tours1 = players['Gaby'].tours;
+        let tours2 = players['Jayden'].tours;
+
+        if(tours1 == tours2){
+            this.setState({tours: this.state.tours += 1});
+            this.compareChoise();
+        }
+    }
+
+    getChoise(value, name){
+        let players = this.state.players;
+        players[name].choise = value;
+        players[name].tours += 1;
+        
+        this.setState({players : players});
+        this.changeDisplay();
+        this.stopTours();
     }
 
     end(){
@@ -126,6 +138,7 @@ export default class Content extends Component {
                         <p>Gaby : {this.state.players['Gaby'].score}</p>
                         <p>Jayden : {this.state.players['Jayden'].score}</p>
                     </div>
+                    <button onClick={this.repeat.bind(this)}>Recommencer</button>
                 </div>
             )
         }
@@ -141,7 +154,7 @@ export default class Content extends Component {
                     <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)} timer={this.state.currentCount} /*randomValue={this.randomValue}*//>
                     <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)} timer={this.state.currentCount} /*randomValue={this.randomValue}*//>
                     <div className='message'>{this.state.message}</div>
-
+                    <button onClick={this.repeat.bind(this)}>Recommencer</button>
                 </div>
             )
         }

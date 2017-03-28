@@ -47,10 +47,18 @@ header {
     }
 }
 
+#end, #content {
+    button {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
 #end {
     width: 60%;
     margin: 0 auto;
     margin-bottom: 1rem;
+    text-align: center;
     @extend .padding;
     h1 {
         text-align: center;
@@ -62,6 +70,9 @@ header {
     }
     .score{
         text-align: center;
+    }
+    button {
+        margin-top: 1rem;
     }
 }
 #notice{

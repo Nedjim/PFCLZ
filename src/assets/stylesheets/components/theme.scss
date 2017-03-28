@@ -27,7 +27,18 @@ header {
     }
 }
 #end {
-     background: white;
+    background: white;
+}
+#end, #content {
+     button {
+        border: none;
+        font-size: 0.9rem;
+        color: white;
+        &:hover {
+            background: $grey;
+            color: white;
+        }
+    }
 }
 #notice{
     background: white;
@@ -38,5 +49,9 @@ header {
         border: none;
         color: white;
         font-size: 0.8rem;
+        &:hover {
+            background: $grey;
+            color: white;
+        }
     }
 }
