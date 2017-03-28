@@ -6,7 +6,7 @@ body {
 header {
     h1 {
         color: white;
-        background: #212121;
+        background: $grey;
     }
 }
 
@@ -19,7 +19,7 @@ header {
                background: $orange;
                font-size: 0.9rem;
                &:hover {
-                   background: #8D6E63;
+                   background: $brown;
                    color: white;
                }
            }
