@@ -10,9 +10,10 @@ export default class Player extends Component {
         this.props.randomValue(this.props.player.name);
     }*/
 
+
     render() {
-        if(this.props.player.display == true){
-            {/*this.randomValues()*/}
+        if(this.props.player.display){
+        {/*this.randomValues()*/}
             return(
                 <div className='players'>
                     <div>{/*this.props.timer*/}</div>

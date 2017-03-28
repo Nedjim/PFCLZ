@@ -35,8 +35,6 @@ export default class Content extends Component {
         let max = 4;
         let min = 0;
         let random = Math.floor(Math.random() * (max - min)) + min;
-        console.log(name);
-        console.log(values[random]);
         this.getChoise(values[random], name);
 
     }*/
@@ -50,7 +48,6 @@ export default class Content extends Component {
 
     getChoise(value, name){
         let players = this.state.players;
-
         players[name].choise = value;
         players[name].tours += 1;
         
@@ -77,14 +74,14 @@ export default class Content extends Component {
         let message;
 
         if(choise1 == choise2){
-            message = 'Vous avez fait le même choix, vous ne gagnez aucun points sur la dernière partie'
+            message = 'Vous avez fait le même choix, vous ne gagnez aucun points sur la dernière partie (' +  this.state.players['Gaby'].choise + '/ ' + this.state.players['Jayden'].choise +')';
         }
         else if(data[choise1][choise2] == 1){
-            message = 'Gaby gagne la dernière partie';
+            message = 'Gaby gagne la dernière partie (' +  this.state.players['Gaby'].choise + '/ ' + this.state.players['Jayden'].choise +')';
             players['Gaby'].score += 1;
         }
         else {
-            message = 'Jayden gagne la dernière partie';
+            message = 'Jayden gagne la dernière partie (' +  this.state.players['Gaby'].choise + '/ ' + this.state.players['Jayden'].choise +')';
             players['Jayden'].score += 1;
         }
         this.setState({
@@ -94,11 +91,11 @@ export default class Content extends Component {
     }
 
     end(){
-        clearInterval(this.state.intervalId);
+        //clearInterval(this.state.intervalId);
         if(this.state.players['Gaby'].score > this.state.players['Jayden'].score){
             return (
                 <div  className='winner'>
-                    Gaby gagne la partie
+                    Gaby gagne le jeu 
                 </div>
             )
         }
@@ -112,7 +109,7 @@ export default class Content extends Component {
         else {
             return (
                 <div className='winner'>
-                    Jayden gagne la partie
+                    Jayden gagne le jeu
                 </div>
             )
         }
@@ -144,6 +141,7 @@ export default class Content extends Component {
                     <Player key={1} player={this.state.players['Gaby']} getChoise={this.getChoise.bind(this)} timer={this.state.currentCount} /*randomValue={this.randomValue}*//>
                     <Player key={2} player={this.state.players['Jayden']} getChoise={this.getChoise.bind(this)} timer={this.state.currentCount} /*randomValue={this.randomValue}*//>
                     <div className='message'>{this.state.message}</div>
+
                 </div>
             )
         }
